@@ -7,7 +7,7 @@ FROM golang:1.12 as builder
 LABEL maintainer="Vimal@VirginPacific.com"
 
 # Set the Current Working Directory inside the container
-WORKDIR $GOPATH/src/go-stateservice
+WORKDIR $GOPATH/src/go-service
 
 # Copy everything from the current directory to the PWD(Present Working Directory) inside the container
 COPY . .
@@ -17,7 +17,7 @@ RUN go get -d -v ./...
 
 
 # Build the Go app
-RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /go/bin/go-stateservice .
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -o /go/bin/go-service .
 
 
 ######## Start a new stage from scratch #######
@@ -28,8 +28,8 @@ RUN apk --no-cache add ca-certificates
 WORKDIR /root/
 
 # Copy the Pre-built binary file from the previous stage
-COPY --from=builder /go/bin/go-stateservice .
+COPY --from=builder /go/bin/go-service .
 
 EXPOSE 7070
 
-CMD ["./go-stateservice"]
+CMD ["./go-service"]

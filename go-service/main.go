@@ -4,7 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"github.com/gorilla/mux"
-	"go-stateservice/com/nike/model"
+	"go-service/com/cde/model"
 	"net/http"
 	"strconv"
 )
