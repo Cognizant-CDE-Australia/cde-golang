@@ -8,13 +8,7 @@
 2. Install your convenient IDE - This course is demonstrated with visual studio code
     * https://code.visualstudio.com/download
 
-3. Checkout the samples from github
-
-    > Lab 1: [Github](https://github.com/HariDhanakoti/golangTraining)
-    
-    > Lab 2: [Github](https://github.com/HariDhanakoti/golangPackage)
-
-4. How to run your sample program
+3. How to run your sample program
     1. Navigate to the folder 
         > $YOUR_FOLDER/hello
     2. Run this command:  
