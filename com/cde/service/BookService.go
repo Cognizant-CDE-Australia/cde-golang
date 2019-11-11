@@ -33,6 +33,25 @@ func DeleteBook(id string) {
 
 }
 
+func UpdateBookById(inBook * model.Book) (*model.Book, error) {
+
+	fmt.Println("Book searched for Id ", inBook.Id)
+	for element := values.Front(); element != nil; element = element.Next() {
+		fmt.Println(element.Value.(*model.Book))
+		book := element.Value.(*model.Book)
+		fmt.Println("Book found for Id ", book.Id)
+
+		if book.Id == inBook.Id {
+			book.Content = inBook.Content
+			book.Desc = inBook.Desc
+			book.Title = inBook.Title
+			return book, nil
+		}
+
+	}
+	return nil, errors.New("book with the id not found")
+}
+
 func GetBookById(id string) (*model.Book, error) {
 
 	fmt.Println("Book searched for Id ", id)
@@ -49,11 +68,9 @@ func GetBookById(id string) (*model.Book, error) {
 	return nil, errors.New("book with the id not found")
 }
 
-func GetAllBooks()   [] *model.Book {
+func GetAllBooks() [] *model.Book {
 
 	var slice [] *model.Book
-
-
 	for element := values.Front(); element != nil; element = element.Next() {
 		fmt.Println(element.Value.(*model.Book))
 		book := element.Value.(*model.Book)
@@ -61,7 +78,5 @@ func GetAllBooks()   [] *model.Book {
 	}
 
 	fmt.Println("Service ... GetAllBooks")
-	//fmt.Println(values)
-	//return * values
 	return slice
 }

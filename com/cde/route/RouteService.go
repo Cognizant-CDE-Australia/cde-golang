@@ -16,7 +16,12 @@ func RegisterRoutes() {
 
 	r.HandleFunc("/", handler.HealthHandler).Methods("GET")
 	r.HandleFunc("/health", handler.HealthCheck).Methods("GET")
+
+
+
 	r.HandleFunc("/book", handler.AddBook).Methods("POST")
+	r.HandleFunc("/book", handler.UpdateBook).Methods("PUT")
+
 	r.HandleFunc("/book/{id}", handler.BookById).Methods("GET")
 	r.HandleFunc("/book", handler.GetAllBooks).Methods("GET")
 	r.HandleFunc("/book", handler.DeleteBook).Methods("DELETE")

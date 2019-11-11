@@ -28,17 +28,28 @@ func AddBook(w http.ResponseWriter, r *http.Request) {
 
 	fmt.Println(r.URL.Query().Get("g1"))
 
-	vars := mux.Vars(r)
-	title := vars["Title"]
-	id := vars["Id"]
-
-	fmt.Println("The incoming vars are", title, id )
+	//vars := mux.Vars(r)
+	//title := vars["Title"]
+	//id := vars["Id"]
+	//
+	//fmt.Println("The incoming vars are", title, id )
 
 	reqBody, _ := ioutil.ReadAll(r.Body)
 	var book model.Book
 	json.Unmarshal(reqBody, &book)
 	fmt.Println(book)
 	service.AddBook(&book)
+}
+
+
+func UpdateBook(w http.ResponseWriter, r *http.Request) {
+	fmt.Println("Update book Invoked")
+
+	reqBody, _ := ioutil.ReadAll(r.Body)
+	var book model.Book
+	json.Unmarshal(reqBody, &book)
+	fmt.Println(book)
+	service.UpdateBookById(&book)
 }
 
 func DeleteBook(w http.ResponseWriter, r *http.Request) {
