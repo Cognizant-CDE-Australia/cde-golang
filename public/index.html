@@ -1,0 +1,38 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+   <head>
+      <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+         <title>Welcome User {{.Name}}!</title>
+         <link rel="stylesheet" href="../static/stylesheet/welcome.css">
+   </head>
+   <body>
+      <div class="container">
+         <form action="" method="post" name="recordTemperatures" class="register">
+            <div class="row">
+               <div class="column-25">
+                  <label id="labelCity" for="city">Enter City:</label>
+               </div>
+               <div class="column-75">
+                  <input type="text" id="city" name="city" placeholder="Enter name of the city"/>
+               </div>
+            </div>
+            <div class="row">
+               <div class="column-25">
+                  <label id="labelTemp" for="temp">Enter Temperature:</label>
+               </div>
+               <div class="column-75">
+                  <input type="text" id="temp" name="temp" placeholder="Enter temperature"/>
+               </div>
+            </div>
+            <div class="row">
+               <div class="column-25">
+                  <label id="labelWindSpeed" for="windSpeed">Enter Wind Speed: </label>
+               </div>
+               <div class="column-75">
+                  <input type="text" id="windSpeed" name="windSpeed" placeholder="Enter wind speed"/>
+               </div>         
+            </div>
+         </form>
+      </div>
+   </body>
+</html>
