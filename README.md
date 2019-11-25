@@ -1,15 +1,32 @@
-# cde-golang
+# golangDB
+Golang database connectivity and retrieval options
 
-Step 1: Create a desired folder structure
-In this example, i have created two different folders customer and employee
+Pull latest mysql:
+docker pull mysql/mysql-server:latest
 
-Step 2: Run init mod
-- Run the command `go mod init` it will return with an error should have a package name.
-- Rerun the go mod init command with the package name at the end `github.com/haridhanakoti/golangPackage`
-- Final command looks like `go mod init github.com/haridhanakoti/golangPackage`
+Run Database:
+docker run -p 3306:3306 -d --name mysql -e MYSQL_ROOT_PASSWORD=password mysql/mysql-server
 
-Step 3: 
-- New file named `go.mod` will be created on executing the above command
+Login to the container bash
+mysql -uroot -ppassword
 
-Step 4:
-- Use the import statement to import the custom package like `emp "github.com/cdeGolang/golangPackage"`
+Create user:
+CREATE USER 'golang'@'%' IDENTIFIED BY 'password';
+GRANT ALL PRIVILEGES ON * . * TO 'golang'@'%';
+
+Test created user login:
+mysql -ugolang -ppassword
+
+
+Create schema:
+CREATE DATABASE demo;
+
+USE demo;
+
+CREATE TABLE users ( id smallint unsigned not null auto_increment, name varchar(20) not null, constraint pk_example primary key (id) );
+INSERT INTO users ( id, name ) VALUES (1, "Ashlee");
+INSERT INTO users ( id, name ) VALUES (2, "Brown");
+INSERT INTO users ( id, name ) VALUES (3, "Daniel");
+INSERT INTO users ( id, name ) VALUES (4, "Samantha");
+INSERT INTO users ( id, name ) VALUES (5, "Brady");
+
